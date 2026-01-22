@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For Devi ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.95);
+      padding: 40px 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      max-width: 90%;
+      animation: fadeIn 1.5s ease;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+    }
+
+    input {
+      padding: 12px;
+      width: 80%;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 26px;
+      border-radius: 30px;
+      border: none;
+      background: #ff5f7e;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #ff3f63;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .error {
+      color: #ff5f7e;
+      margin-top: 10px;
+      display: none;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -20px;
+      font-size: 20px;
+      animation: floatUp 7s linear infinite;
+      opacity: 0.6;
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(0); }
+      to { transform: translateY(-120vh); opacity: 0; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PASSWORD PAGE -->
+  <div class="card" id="passwordPage">
+    <h1>Only for Devi 💌</h1>
+    <p>This little world is made just for you.</p>
+    <input type="password" id="passwordInput" placeholder="Enter the secret">
+    <br>
+    <button onclick="checkPassword()">Enter</button>
+    <div class="error" id="errorMsg">Oops… try again 💕</div>
+  </div>
+
+  <!-- WELCOME PAGE -->
+  <div class="card hidden" id="welcomePage">
+    <h1>Hey Devi ❤️</h1>
+    <p>
+      I made something for you.<br>
+      A little journey, made with love.
+    </p>
+    <button onclick="goNext()">Start</button>
+  </div>
+
+  <!-- NEXT PAGE (placeholder) -->
+  <div class="card hidden" id="nextPage">
+    <h1>Just the beginning 💖</h1>
+    <p>
+      There’s more coming…<br>
+      quizzes, memories, teddy hugs 🧸
+    </p>
+  </div>
+
+  <script>
+    // 🔑 Change password later
+    const SECRET_PASSWORD = "changeme";
+
+    function checkPassword() {
+      const input = document.getElementById("passwordInput").value;
+      if (input === SECRET_PASSWORD) {
+        document.getElementById("passwordPage").classList.add("hidden");
+        document.getElementById("welcomePage").classList.remove("hidden");
+      } else {
+        document.getElementById("errorMsg").style.display = "block";
+      }
+    }
+
+    function goNext() {
+      document.getElementById("welcomePage").classList.add("hidden");
+      document.getElementById("nextPage").classList.remove("hidden");
+    }
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerText = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (5 + Math.random() * 3) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 8000);
+    }
+
+    setInterval(createHeart, 500);
+  </script>
+
+</body>
+</html>
