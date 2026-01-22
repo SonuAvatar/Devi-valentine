@@ -116,14 +116,33 @@
     <button onclick="goNext()">Start</button>
   </div>
 
-  <!-- NEXT PAGE (placeholder) -->
-  <div class="card hidden" id="nextPage">
-    <h1>Just the beginning 💖</h1>
+  <!-- PAGE 2: FUN QUIZ -->
+<div class="card hidden" id="quizPage">
+  <h1>One question 😌</h1>
+  <p>What’s my favourite part of you?</p>
+
+  <button onclick="wrongAnswer()">Your eyes 👀</button><br>
+  <button onclick="wrongAnswer()">Your smile 😊</button><br>
+  <button onclick="wrongAnswer()">Your nose 😄</button><br>
+  <button onclick="wrongAnswer()">Something else 🤔</button>
+
+  <div id="quizReaction" style="display:none; margin-top:20px;">
+    <h2>Pagalllll!!! 😤</h2>
+
+    <img
+      src="https://media.giphy.com/media/3o6ZtaO9BZHcOjmErm/giphy.gif"
+      style="width:150px; margin:15px 0;"
+      alt="Angry Teddy"
+    >
+
     <p>
-      There’s more coming…<br>
-      quizzes, memories, teddy hugs 🧸
+      The whole of you is my favourite ❤️<br>
+      Every single part. Always.
     </p>
+
+    <button onclick="goToNext()">Next ➡️</button>
   </div>
+</div>
 
   <script>
     // 🔑 Change password later
@@ -140,10 +159,17 @@
     }
 
     function goNext() {
-      document.getElementById("welcomePage").classList.add("hidden");
-      document.getElementById("nextPage").classList.remove("hidden");
-    }
+  document.getElementById("welcomePage").classList.add("hidden");
+  document.getElementById("quizPage").classList.remove("hidden");
+}
+    function wrongAnswer() {
+  document.getElementById("quizReaction").style.display = "block";
+}
 
+function goToNext() {
+  document.getElementById("quizPage").classList.add("hidden");
+  alert("Pagal hi hai tu 😌🧸❤️");
+}
     function createHeart() {
       const heart = document.createElement("div");
       heart.className = "heart";
