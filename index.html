@@ -156,32 +156,31 @@
     </div>
   
   <script>
-const SECRET_PASSWORD = "changeme";
+const SECRET_PASSWORD = "changeme"; // change later
+
+function showPage(pageId) {
+  document.querySelectorAll(".page").forEach(p => {
+    p.classList.remove("active");
+  });
+  document.getElementById(pageId).classList.add("active");
+}
 
 function checkPassword() {
   const input = document.getElementById("passwordInput").value;
   if (input === SECRET_PASSWORD) {
-    document.getElementById("passwordPage").classList.remove("active");
-    showWelcome();
+    showPage("welcomePage");
   } else {
     document.getElementById("errorMsg").style.display = "block";
   }
 }
 
-function showWelcome() {
-  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
-  document.getElementById("welcomePage").classList.add("active");
-}
-
 function goToQuiz() {
-  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
-  document.getElementById("quizPage").classList.add("active");
+  showPage("quizPage");
 }
 
 function wrongAnswer() {
   document.getElementById("quizReaction").classList.remove("hidden");
 }
-</script>
         
 </body>
 </html>
