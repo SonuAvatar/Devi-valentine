@@ -11,14 +11,11 @@
     }
 
     body {
-      margin: 0;
-      height: 100vh;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
+  margin: 0;
+  height: 100vh;
+  font-family: 'Poppins', Arial, sans-serif;
+  background: #000; /* fallback */
+  overflow: hidden;
     }
 
     .card {
@@ -94,12 +91,21 @@
     }
     /* Welcome page background */
 #welcomePage {
-  background: url("love-bg.jpg") no-repeat center center/cover;
-  background-color: transparent;
-  position: relative;
+  position: fixed;
+  inset: 0;
+  background: url("love-bg.jpg") no-repeat center center / cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: white;
 }
-
+/* Dark overlay for readability */
+#welcomePage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
 /* Dark overlay for readability */
 #welcomePage::before {
   content: "";
@@ -108,7 +114,10 @@
   background: rgba(0, 0, 0, 0.45);
   border-radius: 20px;
 }
-
+#welcomePage * {
+  position: relative;
+  z-index: 2;
+}
 /* Keep text above overlay */
 #welcomePage * {
   position: relative;
@@ -128,15 +137,16 @@
     <div class="error" id="errorMsg">Oops… try again 💕</div>
   </div>
 
-  <!-- WELCOME PAGE -->
-  <div class="card hidden" id="welcomePage">
+  <div id="welcomePage" class="hidden">
+  <div class="card">
     <h1>Hey Devi ❤️</h1>
     <p>
       I made something for you.<br>
       A little journey, made with love.
     </p>
-    <button onclick="startQuiz()">Start</button>
+    <button onclick="goNext()">Start</button>
   </div>
+</div>
 
   <!-- PAGE 2: FUN QUIZ -->
 <div class="card hidden" id="quizPage">
