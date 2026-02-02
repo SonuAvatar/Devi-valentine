@@ -113,7 +113,7 @@
       I made something for you.<br>
       A little journey, made with love.
     </p>
-    <button onclick="goNext()">Start</button>
+    <button onclick="startQuiz()">Start</button>
   </div>
 
   <!-- PAGE 2: FUN QUIZ -->
@@ -147,6 +147,15 @@
   <script>
     // 🔑 Change password later
     const SECRET_PASSWORD = "changeme";
+    function startQuiz() {
+  // hide all cards safely
+  document.querySelectorAll(".card").forEach(card => {
+    card.classList.add("hidden");
+  });
+
+  // show quiz page only
+  document.getElementById("quizPage").classList.remove("hidden");
+    }
 
     function checkPassword() {
       const input = document.getElementById("passwordInput").value;
