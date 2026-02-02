@@ -14,9 +14,9 @@
   margin: 0;
   height: 100vh;
   font-family: 'Poppins', Arial, sans-serif;
-  background: #000; /* fallback */
+  background: radial-gradient(circle at top, #ff9a9e, #fad0c4);
   overflow: hidden;
-    }
+}
 
     .card {
       background: rgba(255,255,255,0.95);
@@ -73,11 +73,34 @@
     }
 
     .heart {
-      position: absolute;
-      bottom: -20px;
-      font-size: 20px;
-      animation: floatUp 7s linear infinite;
-      opacity: 0.6;
+  position: absolute;
+  bottom: -30px;
+  font-size: 22px;
+  animation: floatUp 8s linear infinite;
+  opacity: 0.7;
+}
+
+      /* Fullscreen section */
+.fullscreen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Glassmorphism card */
+.glass {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 25px;
+  padding: 40px 30px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  color: white;
+}
     }
 
     @keyframes floatUp {
@@ -128,7 +151,10 @@
 <body>
 
   <!-- PASSWORD PAGE -->
-  <div class="card" id="passwordPage">
+  <div id="passwordPage" class="fullscreen">
+  <div class="card glass">
+    </div>
+  </div>
     <h1>Only for Devi 💌</h1>
     <p>This little world is made just for you.</p>
     <input type="password" id="passwordInput" placeholder="Enter the secret">
