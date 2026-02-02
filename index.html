@@ -92,6 +92,27 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    /* Welcome page background */
+#welcomePage {
+  background: url("love-bg.jpg") no-repeat center center/cover;
+  position: relative;
+  color: white;
+}
+
+/* Dark overlay for readability */
+#welcomePage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 20px;
+}
+
+/* Keep text above overlay */
+#welcomePage * {
+  position: relative;
+  z-index: 2;
+}
   </style>
 </head>
 <body>
