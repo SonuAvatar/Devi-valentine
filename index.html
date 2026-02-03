@@ -144,18 +144,20 @@
       <button onclick="wrongAnswer()">Your nose 😚</button><br>
       <button onclick="wrongAnswer()">Your eyebrows 🤭</button>
 
-<div id="quizReaction" class="hidden" >
-  <h2>Pagalllll!!!! 😤</h2>
+<!-- ANSWER PAGE -->
+<div id="answerPage" class="page">
+  <div class="card">
+    <h2>Pagallllll!!! 😤</h2>
 
-  <img 
-    src="https://media.giphy.com/media/3o6Zta09BZhCOjmErm/giphy.gif" 
-    width="150"
-  >
+    <img src="https://media.giphy.com/media/3o6Zta09BZHCojmErm/giphy.gif" width="150">
 
-  <p>
-    The whole of you is my favourite ❤️<br>
-    Every single part. Always.
-  </p>
+    <p>
+      The whole of you is my favourite ❤️<br>
+      Every single part. Always.
+    </p>
+
+    <button onclick="goNext()">Next 💕</button>
+  </div>
 </div>
     </div>
   
@@ -183,7 +185,7 @@ function goToQuiz() {
 }
 
 function wrongAnswer() {
-  document.getElementById("quizReaction").classList.remove("hidden");
+  showPage("answerPage");
 }
         
 </script>
