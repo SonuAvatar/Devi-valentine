@@ -17,6 +17,9 @@
       background: radial-gradient(circle at top, #ff9a9e, #fad0c4);
       overflow: hidden;
     }
+    .hidden {
+  display: none !important;
+    }
     
     .page {
   position: fixed;
@@ -40,6 +43,10 @@
       animation: fadeIn 1s ease;
       position: relative;
       z-index: 2;
+    }
+
+    #quizReaction {
+  margin-top: 20px;
     }
 
     h1 {
@@ -137,7 +144,7 @@
       <button onclick="wrongAnswer()">Your nose 😚</button><br>
       <button onclick="wrongAnswer()">Your eyebrows 🤭</button>
 
-<div id="quizReaction" class="hidden" style="margin-top:20px;">
+<div id="quizReaction" class="hidden" >
   <h2>Pagalllll!!!! 😤</h2>
 
   <img 
